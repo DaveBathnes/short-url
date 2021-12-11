@@ -18,10 +18,19 @@ function App() {
   const [longUrl, setLongUrl] = useState("");
   const [result, setResult] = useState("");
 
+  const refreshShortText = () => {
+    const shortText = shortenerHelper.generateShortText();
+    return shortText;
+  }
+
   const makeShortUrl = () => {
     const result = shortenerHelper.makeShortUrl(shortText, longUrl);
     setResult(result);
   }
+
+  useEffect(() => {
+    setShortText(refreshShortText());
+  }, []);
 
   return (
     <Grid
@@ -36,12 +45,9 @@ function App() {
         <Card elevation={0} variant="outlined">
           <CardHeader title="Short Links" />
           <CardContent>
-            <p>Enter your long URL to make a shorter version</p>
+            <p>Enter your long URL</p>
             <TextField id="txt-long" label="Long URL" variant="outlined" onChange={(e) => setLongUrl(e.value)} />
-            <br />
-            <br />
-            <p>Choose a short version.</p>
-            <TextField id="txt-alias" label="Short text" variant="outlined" onChange={(e) => setShortText(e.value)} />
+            <p>{window.location.hostname + '/' + shortText}</p>
           </CardContent>
           <CardContent>
             <p>{result}</p>
