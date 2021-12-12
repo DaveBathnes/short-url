@@ -31,6 +31,17 @@ To run using Docker, simply run the following command:
 docker-compose up
 ```
 
+## Testing instructions
+
+After running docker-compose up, you can test the service by the following steps:
+
+1. Navigate to ```http://localhost:3050```
+2. Enter a URL in the input field
+3. Click the make URL button
+4. The saved short code link will be displayed in the output field
+5. In the browser, navigate to the short code link
+6. The original URL will be displayed
+
 ## Deployment
 
 See [Docker notes on deploying your app](https://docs.docker.com/language/java/deploy/) for details of how to deploy. Alternatively this could be run independently on a web server that supports static hosting for the website, and Node.JS for the backend.
