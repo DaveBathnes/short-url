@@ -12,4 +12,4 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/', shortUrls)
 
-app.listen(process.env.PORT || 5000)
+app.listen(process.env.PORT || 3001)

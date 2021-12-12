@@ -14,6 +14,8 @@ import CssBaseline from '@mui/material/CssBaseline'
 
 import * as shortenerHelper from './helpers/shortener'
 
+const config = require('../helpers/config.json')
+
 function App () {
   const [alias, setAlias] = useState('')
   const [url, setUrl] = useState('')
@@ -31,7 +33,7 @@ function App () {
     setUrl('')
     const result = shortenerHelper.makeShortUrl(alias, url)
     if (result) {
-      setResultMessage('Created ' + window.location + alias)
+      setResultMessage('Created ' + window.location + config.apiUrl + alias)
     } else {
       refreshAlias()
       setResultMessage('Error creating the short url')

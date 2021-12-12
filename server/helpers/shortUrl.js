@@ -11,9 +11,7 @@ module.exports.getShortUrl = async (alias) => {
     const query = 'select url from urls where alias = $1'
     const { rows } = await pool.query(query, [alias])
     if (rows.length > 0) shortUrl = rows[0].url
-  } catch (e) {
-    return null
-  }
+  } catch (e) {}
   return shortUrl
 }
 
@@ -28,8 +26,6 @@ module.exports.addShortUrl = async (alias, url) => {
     const query = 'insert into urls (alias, url) values ($1, $2)'
     const { rowCount } = await pool.query(query, [alias, url])
     if (rowCount > 0) return true
-  } catch (e) {
-    return false
-  }
+  } catch (e) {}
   return false
 }
