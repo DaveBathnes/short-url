@@ -24,7 +24,7 @@ function App () {
 
   const refreshAlias = () => {
     setResultMessage('')
-    return shortenerHelper.generateAlias()
+    setAlias(shortenerHelper.generateAlias())
   }
 
   const makeShortUrl = async () => {
@@ -52,7 +52,7 @@ function App () {
   }
 
   useEffect(() => {
-    setAlias(refreshAlias())
+    refreshAlias()
   }, [])
 
   return (
