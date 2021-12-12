@@ -1,13 +1,15 @@
-const express = require('express');
-const cors = require('cors');
+const express = require('express')
+const cors = require('cors')
+const app = express()
+const shortUrls = require('./routes/shortUrls')
 
 require('dotenv').config()
-require('dotenv-defaults').config()
 
 app.use(cors())
 
-const app = express();
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }))
 
-app.listen(process.env.PORT || 8080)
+app.use('/', shortUrls)
+
+app.listen(process.env.PORT || 5000)
