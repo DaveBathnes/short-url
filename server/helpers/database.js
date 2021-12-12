@@ -5,12 +5,7 @@ const config = {
   host: process.env.PGHOST,
   database: process.env.PGDATABASE,
   password: process.env.PGPASSWORD,
-  port: process.env.PGPORT,
-  ssl: {
-    rejectUnauthorized: false
-  },
-  max: 10,
-  idleTimeoutMillis: 30000
+  port: process.env.PGPORT
 }
 
 var pool = new pg.Pool(config)
