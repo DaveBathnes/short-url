@@ -28,7 +28,7 @@ function App () {
   }
 
   const makeShortUrl = async () => {
-    const aliasToUse = alias;
+    const aliasToUse = `${alias}`;
     refreshAlias()
     setUrlErrorText('')
     setUrl('')
