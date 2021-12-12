@@ -20,7 +20,7 @@ router.post('/:alias', async function (req, res) {
   if (!alias || !url) return res.status(400)
 
   try {
-    URL(url)
+    new URL(url) // eslint-disable-line no-new
   } catch (e) {
     return res.status(400)
   }
