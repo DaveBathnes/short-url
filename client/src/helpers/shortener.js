@@ -2,9 +2,9 @@ import axios from 'axios'
 
 const config = require('./config.json')
 
-export const makeShortUrl = async (short, long) => {
-  const result = await axios.post(`${config.apiUrl}`, { short: short, long: long })
-  return result.status === 200
+export const makeShortUrl = async (alias, url) => {
+  const result = await axios.post(`${config.apiUrl}/$alias`, { url: long })
+  return (result.status === 200)
 }
 
 export const generateAlias = () => {
