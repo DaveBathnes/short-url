@@ -14,7 +14,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 
 import * as shortenerHelper from './helpers/shortener'
 
-const config = require('../helpers/config.json')
+const config = require('./helpers/config.json')
 
 function App () {
   const [alias, setAlias] = useState('')
