@@ -28,12 +28,13 @@ function App () {
   }
 
   const makeShortUrl = async () => {
+    const aliasToUse = alias;
     refreshAlias()
     setUrlErrorText('')
     setUrl('')
-    const result = await shortenerHelper.makeShortUrl(alias, url)
+    const result = await shortenerHelper.makeShortUrl(aliasToUse, url)
     if (result) {
-      setResultMessage('Created ' + window.location + config.apiUrl + alias)
+      setResultMessage('Created ' + window.location + config.apiUrl + aliasToUse)
     } else {
       setResultMessage('Error, please try again')
     }
