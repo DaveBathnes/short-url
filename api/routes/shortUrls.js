@@ -7,7 +7,7 @@ router.get('/:alias', async function (req, res) {
 
   if (!alias) return res.status(400)
 
-  const shortUrl = await shortUrlHelper.getShortUrl(alias)
+  const shortUrl = await shortUrlHelper.getShortUrl(alias.toUpperCase())
   if (shortUrl === '') return res.sendStatus(404)
 
   res.redirect(shortUrl)
@@ -25,7 +25,7 @@ router.post('/:alias', async function (req, res) {
     return res.status(400)
   }
 
-  const result = await shortUrlHelper.addShortUrl(alias, url)
+  const result = await shortUrlHelper.addShortUrl(alias.toUpperCase(), url)
 
   if (result) return res.sendStatus(200)
   res.sendStatus(500)
