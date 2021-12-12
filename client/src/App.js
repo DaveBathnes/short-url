@@ -35,9 +35,10 @@ function App () {
     if (result) {
       setResultMessage('Created ' + window.location + config.apiUrl + alias)
     } else {
-      refreshAlias()
+      
       setResultMessage('Error, please try again')
     }
+    refreshAlias()
   }
 
   const handleUrlChange = (event) => {
@@ -72,7 +73,7 @@ function App () {
             <CardContent>
               <p>Enter your URL</p>
               <TextField value={url} error={urlErrorText !== ''} helperText={urlErrorText} id='txt-url' label='URL' variant='outlined' onChange={handleUrlChange} />
-              <p>Proposed alias <strong>{alias}</strong></p>
+              <p>Next proposed alias <strong>{alias}</strong></p>
               <p>{resultMessage}</p>
             </CardContent>
             <CardActions>
